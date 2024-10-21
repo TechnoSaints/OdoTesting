@@ -102,7 +102,7 @@ public class SensorGoBildaPinpointExample extends LinearOpMode {
         increase when you move the robot forward. And the Y (strafe) pod should increase when
         you move the robot to the left.
          */
-        odo.setEncoderDirections(GoBildaPinpointDriver.EncoderDirection.FORWARD, GoBildaPinpointDriver.EncoderDirection.FORWARD);
+        odo.setEncoderDirections(GoBildaPinpointDriver.EncoderDirection.REVERSED, GoBildaPinpointDriver.EncoderDirection.REVERSED);
 
 
         /*
@@ -157,14 +157,12 @@ public class SensorGoBildaPinpointExample extends LinearOpMode {
             double frequency = 1/loopTime;
             oldTime = newTime;
 
-
             /*
             gets the current Position (x & y in inches, and heading in radians) of the robot, and prints it.
              */
             Pose2d pos = odo.getPositionRR();
             String data = String.format(Locale.US, "{X: %.3f, Y: %.3f, H: %.3f}", pos.position.x, pos.position.y, pos.heading.toDouble());
             telemetry.addData("Position", data);
-
 
             /*
             gets the current Velocity (x & y in inches/sec and heading in radians/sec) and prints it.
